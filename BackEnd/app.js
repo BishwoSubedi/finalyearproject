@@ -1,13 +1,12 @@
 import express from 'express';
-
+import authRoutes from './routes/auth.route.js'
 const app= express();
 
 const PORT= 8000;
 
 
-app.get("/api",(req,res)=>{
-    res.send("Hello world")
-})
+app.use(express.json())
+app.use("/auth",authRoutes)
 
 
  app.listen(PORT,()=>{
